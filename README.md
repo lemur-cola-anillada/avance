@@ -1,1 +1,1 @@
-# pantallazo![Lemur de cola anillada](https://user-images.githubusercontent.com/26774278/144517418-a8c050c8-26cc-4238-b228-e81fb764650d.jpeg)
+# pantallazo!![Lemur de cola anillada_2](https://user-images.githubusercontent.com/26774278/144522557-bbe868a2-0b46-4090-a48f-c0df2585fdc9.jpg)
