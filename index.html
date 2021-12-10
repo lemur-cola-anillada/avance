@@ -1,513 +1,389 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-        <style>
-            /* AHORA VAMOS A IMPORTAR, DE UN VIAJE, DOS FUENTES Y SUS RESPECTIVOS PESOS */
-
-            @import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap");
-
-            /* vamos a contradecir a Bootstrap, partiendo por la fuente tipográfica y afectando sus variables --> https://getbootstrap.com/docs/5.1/customize/css-variables/  */
-
-            :root {
-                --bs-body-font-family: "Roboto", sans-serif;
-                --bs-primary: #f70;
-            }
-
-            /* vamos a ajustar los pesos de algunos títulos a lo que dispone la fuente  */
-
-            h1,
-            h2,
-            h3,
-            h4 {
-                font-weight: 400;
-                font-family: "PT Serif", serif;
-            }
-
-            /* vamos a ajustar los pesos de otros títulos y negrita a lo que dispone la fuente  */
-
-            h5,
-            h6 {
-                font-weight: 700;
-                font-family: "PT Serif", serif;
-            }
-
-            /* AQUÍ HAGO UN AJUSTE IDIOMÁTICO:  EL GRINGO ENFATIZA CON ITÁLICA. EN CASTELLANO NO LO HACEMOS ASÍ, ENFATIZAMOS CON PESO DE FUENTE, MANTENIENDO UN ESTILO NORMAL */
-
-            strong, b, em {
-                font-weight: 500;
-                font-style: normal;
-            }
-
-            /* definiré un tamaño del título de primer nivel (h1) que se ajuste según el viewport width --> https://www.yunbitsoftware.com/blog/2017/06/22/viewport-units-css-que-es/ */
-
-            h1 {
-                font-size: calc(2rem + 2vw);
-            }
-
-            /* repetiré el truco anterior con el título de segundo nivel (h2), que, a diferencia del anterior, puedo ocupar varias veces en la misma página */
-
-            h2 {
-                font-size: calc(0.75rem + 1vw);
-            }
-
-            /* usaré el ">" entre el título se segundo nive (h2) y el lapso en la misma línea (span) --> https://techbrij.com/css-selector-adjacent-child-sibling */
-
-            h2 > span {
-                background: var(--bs-primary);
-                color: #fff;
-            }
-
-            /* sigamos con el título de tercer nivel (h3) */
-
-            h3 {
-                font-size: calc(1.5rem + 1vw);
-            }
-
-            @keyframes corre {
-                0%{left: 0; position: absolute;}
-                100%{left: calc(100% - 60px); position: absolute;}
-            }
-
-            #lento{
-                animation: corre 10s normal forwards;
-            }
-
-            #veloz{
-                animation: corre 5s normal forwards;
-            }
-        </style>
-
-        <!--ESTO SERVIRÁ PARA COMPARAR UN ANTES Y UN DESPUÉS-->
-        <link href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css" rel="stylesheet" />
-
-        <title>Lemur de cola anillada</title>
-    </head>
-    <body>
-        <!--ESTE ES EL ENCABEZADO-->
-        <header class="container">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+      <style>
+         /* AHORA VAMOS A IMPORTAR, DE UN VIAJE, DOS FUENTES Y SUS RESPECTIVOS PESOS */
+         @import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;1,400&display=swap");
+         /* vamos a contradecir a Bootstrap, partiendo por la fuente tipográfica y afectando sus variables --> https://getbootstrap.com/docs/5.1/customize/css-variables/  */
+         :root {
+         --bs-body-font-family: "Roboto", sans-serif;
+         --bs-primary: #f70;
+         }
+         /* vamos a ajustar los pesos de algunos títulos a lo que dispone la fuente  */
+         h1,
+         h2,
+         h3,
+         h4 {
+         font-weight: 400;
+         font-family: "PT Serif", serif;
+         }
+         /* vamos a ajustar los pesos de otros títulos y negrita a lo que dispone la fuente  */
+         h5,
+         h6 {
+         font-weight: 700;
+         font-family: "PT Serif", serif;
+         }
+         /* AQUÍ HAGO UN AJUSTE IDIOMÁTICO:  EL GRINGO ENFATIZA CON ITÁLICA. EN CASTELLANO NO LO HACEMOS ASÍ, ENFATIZAMOS CON PESO DE FUENTE, MANTENIENDO UN ESTILO NORMAL */
+         strong,
+         b,
+         em {
+         font-weight: 500;
+         font-style: normal;
+         }
+         /* definiré un tamaño del título de primer nivel (h1) que se ajuste según el viewport width --> https://www.yunbitsoftware.com/blog/2017/06/22/viewport-units-css-que-es/ */
+         h1 {
+         font-size: calc(2rem + 2vw);
+         }
+         /* repetiré el truco anterior con el título de segundo nivel (h2), que, a diferencia del anterior, puedo ocupar varias veces en la misma página */
+         h2 {
+         font-size: calc(0.75rem + 1vw);
+         }
+         /* usaré el ">" entre el título se segundo nive (h2) y el lapso en la misma línea (span) --> https://techbrij.com/css-selector-adjacent-child-sibling */
+         h2 > span {
+         background: var(--bs-primary);
+         color: #fff;
+         }
+         /* sigamos con el título de tercer nivel (h3) */
+         h3 {
+         font-size: calc(1.5rem + 1vw);
+         }
+         @keyframes corre {
+         0% {
+         left: 0;
+         position: absolute;
+         }
+         100% {
+         left: calc(100% - 60px);
+         position: absolute;
+         }
+         }
+         #lento {
+         animation: corre 10s normal forwards;
+         }
+         #veloz {
+         animation: corre 5s normal forwards;
+         }
+      </style>
+      <!--ESTO SERVIRÁ PARA COMPARAR UN ANTES Y UN DESPUÉS-->
+      <link href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css" rel="stylesheet" />
+      <title>Lemur de cola anillada</title>
+   </head>
+   <body>
+      <!--ESTE ES EL ENCABEZADO-->
+      <header class="container">
+         <div class="row">
+            <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+               <h2 class="text-center mt-5 fst-italic"><span class="px-2 py-1">Lemur catta</span></h2>
+               <h1 class="text-center py-3">Lemur de cola anillada</h1>
+               <h6 class="text-center mb-5 text-muted">
+                  Por
+                  <span
+                     data-bs-container="body"
+                     data-bs-toggle="popover"
+                     data-bs-trigger="hover focus"
+                     data-bs-placement="top"
+                     data-bs-content="<div class='text-center'><img src='https://randomuser.me/api/portraits/men/14.jpg' class='w-50 mb-2 rounded-circle'><br>Nombre Apellido<br><span class='small text-muted'>Profesión</span></div>"
+                     >
+                  Vladimir Leal
+                  </span>
+                  y
+                  <span
+                     data-bs-container="body"
+                     data-bs-toggle="popover"
+                     data-bs-trigger="hover focus"
+                     data-bs-placement="top"
+                     data-bs-content="<div class='text-center'><img src='https://randomuser.me/api/portraits/women/14.jpg' class='w-50 mb-2 rounded-circle'><br>Nombre Apellido<br><span class='small text-muted'>Profesión</span></div>"
+                     >
+                  Yael Motles
+                  </span>
+               </h6>
+               <p class="lead">Endémico de Madagascar, es un vivaz primate de nariz húmeda y caracteristica cola rayada que disfruta de una activa vida social y largos baños de sol.</p>
+               <p>
+                  El Lemur de cola anillada, que también es conocido como <em>Maki de cola anillada</em>, es asociado, al igual que otros lemures, a las almas de los muertos. De hecho, el nombre de su familia, Lemruridae, nace de la
+                  antigua tradición romana de la Lemuria.
+               </p>
+               <object data="files/lemur-chico.svg" type="image/svg+xml" class="d-md-none"></object>
+               <object data="files/lemur-grande.svg" type="image/svg+xml" class="d-none d-md-block"></object>
+               <div class="row">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" class="col-11 col-sm-10 col-md-9 col-lg-8 col-xl-7 col-xxl-6 my-3 mx-auto">
+                     <style type="text/css">
+                        line,
+                        path {
+                        fill: none;
+                        stroke: #777777;
+                        stroke-linecap: round;
+                        }
+                        .blanco {
+                        fill: #ffffff;
+                        font-size: 45px;
+                        }
+                        .gris {
+                        fill: #777777;
+                        font-size: 35px;
+                        }
+                        .no {
+                        fill: #999999;
+                        }
+                        .si {
+                        fill: var(--bs-primary);
+                        }
+                     </style>
+                     <g id="ex">
+                        <circle class="no" cx="82.1" cy="250" r="45" />
+                        <text transform="matrix(1 0 0 1 54 265)" class="blanco">EX</text>
+                     </g>
+                     <g id="ew">
+                        <circle class="no" cx="212.6" cy="250" r="45" />
+                        <text transform="matrix(1 0 0 1 180 265)" class="blanco">EW</text>
+                     </g>
+                     <g id="cr">
+                        <circle class="no" cx="342.9" cy="250" r="45" />
+                        <text transform="matrix(1 0 0 1 313 265)" class="blanco">CR</text>
+                     </g>
+                     <g id="en">
+                        <circle class="si" cx="473.6" cy="250" r="45" />
+                        <text transform="matrix(1 0 0 1 444 265)" class="blanco">EN</text>
+                     </g>
+                     <g id="vu">
+                        <circle class="no" cx="603.8" cy="250" r="45" />
+                        <text transform="matrix(1 0 0 1 574 265)" class="blanco">VU</text>
+                     </g>
+                     <g id="nt">
+                        <circle class="no" cx="734.1" cy="250" r="45" />
+                        <text transform="matrix(1 0 0 1 705 265)" class="blanco">NT</text>
+                     </g>
+                     <g id="lc">
+                        <circle class="no" cx="865.6" cy="250" r="45" />
+                        <text transform="matrix(1 0 0 1 840 265)" class="blanco">LC</text>
+                     </g>
+                     <g id="datos">
+                        <text transform="matrix(1 0 0 1 29.8186 54.2935)" class="gris">Extinto</text>
+                        <text transform="matrix(1 0 0 1 382.5784 54.2935)" class="gris">Amenazado</text>
+                        <text transform="matrix(1 0 0 1 760.9694 54.2935)" class="gris">Preocupación</text>
+                        <text transform="matrix(1 0 0 1 812.2867 95.3477)" class="gris">menor</text>
+                        <line class="st6" x1="865.6" y1="119.4" x2="865.6" y2="162.5" />
+                        <line class="st6" x1="82.1" y1="77.9" x2="82.1" y2="162.5" />
+                        <path
+                           class="st6"
+                           d="M279.3,162.5v-55.2c0-6,4.8-10.8,10.8-10.8h161.1c4.4,0,7.9-0.3,10.4-0.9c2.6-0.5,5-1.9,7-3.8 c2.6-3.3,4.1-6,4.3-8.6c0.2,2.6,1.7,5.3,4.3,8.6c2.1,2.1,4.4,3.3,7,3.8c2.6,0.5,6.2,0.9,10.4,0.9h163.2c6,0,10.8,4.8,10.8,10.8v55.2"
+                           />
+                     </g>
+                  </svg>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!--ESTE ES EL CONTENIDO PRINCIPAL-->
+      <main>
+         <section>
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
+                     <h3 class="text-center pt-5 pb-2">Presencia</h3>
+                  </div>
+               </div>
+            </div>
+            <object data="files/ubicacion.svg" type="image/svg+xml" class="w-100" id="conservacion"></object>
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
+                     <p>Toda la familia de lémures son endémicos de Madagascar y habitan principalmente las zonas más bajas de la isla. El Lemur Catta, en particular, se encuentra en la zona sur.</p>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <section class="container">
             <div class="row">
-                <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-
-                    <h2 class="text-center mt-5 fst-italic"><span class="px-2 py-1">Lemur catta</span></h2>
-
-                    <h1 class="text-center py-3">Lemur de cola anillada</h1>
-
-                    <p class="lead">Endémico de Madagascar, es un vivaz primate de nariz húmeda y caracteristica cola rayada que disfruta de una activa vida social y largos baños de sol.</p>
-
-                    <p>El Lemur de cola anillada, que también es conocido como <em>Maki de cola anillada</em>, es asociado, al igual que otros lemures, a las almas de los muertos. De hecho, el nombre de su familia, Lemruridae, nace de la antigua tradición romana de la Lemuria.
-                    </p>
-
-                    <div class="text-center py-3 px-3 px-sm-2 px-md-1 px-lg-0">
-                        <!--Este elemento es afectado con JavaScript-->
-                        <object data="files/conservacion_lc.svg" type="image/svg+xml" id="conservacion"></object>
-                        <!--Vean más abajo, las líneas 249 a 266-->
-                    </div>
-
-			<!--desde acá la edición de nombres-->
-
-                    <h6 class="text-center mb-5 text-muted">
-                        Por
-
-                        <span
-                            data-bs-container="body"
-                            data-bs-toggle="popover"
-                            data-bs-trigger="hover focus"
-                            data-bs-placement="top"
-                            data-bs-content="<div class='text-center'><img src='https://randomuser.me/api/portraits/men/14.jpg' class='w-50 mb-2 rounded-circle'><br>Nombre Apellido<br><span class='small text-muted'>Profesión</span></div>"
-                        >
-                            Vladimir Leal
-                        </span>
-
-                        y
-
-                        <span
-                            data-bs-container="body"
-                            data-bs-toggle="popover"
-                            data-bs-trigger="hover focus"
-                            data-bs-placement="top"
-                            data-bs-content="<div class='text-center'><img src='https://randomuser.me/api/portraits/women/14.jpg' class='w-50 mb-2 rounded-circle'><br>Nombre Apellido<br><span class='small text-muted'>Profesión</span></div>"
-                        >
-                            Yael Motles
-                        </span>
-                    </h6>
-
-                    <!--hasta aquí la edición de nombres-->
-
-			
-                    <!--Muestra el chucao chico o el grando, pero carga ambos-->
-
-                    <object data="files/lemur-chico.svg" type="image/svg+xml" class="d-md-none"></object>
-                    <object data="files/lemur-grande.svg" type="image/svg+xml" class="d-none d-md-block"></object>
-
-                    <?xml version="1.0" encoding="utf-8"?>
- 
-			
-        <!--ESTE ES EL CONTENIDO PRINCIPAL-->
-        <main>
-            <section class="container-fluid g-0">
-                <div class="row g-0">
-                    <div class="col-12 py-3">
-                        <h3 class="text-center pt-5 pb-2">Presencia</h3>
-                        <!--VAMOS A INCLUIR TRES SVG EN UN CARRUSEL-->
-                        <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 1000 458.8" style="enable-background:new 0 0 1000 458.8;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#B3B3B3;}
-	.st1{font-family:'Roboto-LightItalic';}
-	.st2{font-size:13px;}
-	.st3{fill:none;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
-	.st4{font-family:'Roboto-Light';}
-	.st5{font-size:14px;}
-	.st6{enable-background:new    ;}
-	.st7{fill:#F6A316;}
-</style>
-<g id="Background2">
-
-		
-		<image style="overflow:visible;enable-background:new    ;" width="2002" height="768" xlink:href="madagascar.png"  transform="matrix(0.5994 0 0 0.5994 -127.67 1.0591)">
-	</image>
-</g>
-<text transform="matrix(1 0 0 1 725.488 405.9608)" class="st0 st1 st2">OCEANO ÍNDICO</text>
-<text transform="matrix(1 0 0 1 158.78 405)" class="st0 st1 st2">A</text>
-<text transform="matrix(1 0 0 1 166.72 405)" class="st0 st1 st2">r</text>
-<text transform="matrix(1 0 0 1 170.77 405)" class="st0 st1 st2">abian Sea</text>
-<g>
-	<path class="st3" d="M544.4,357c-0.1,3.2-0.8,25.3-15.9,43.1c-8.5,10.1-17.7,14.1-23.4,15.8"/>
-	<path d="M506.2,415.6l1.9,1.8l-0.1,0.1l-3.9-0.5l-3.9,0c1.2-0.6,2.3-1.2,3.4-1.7l3.2-2.2l0.1,0.1L506.2,415.6z"/>
-</g>
-<text transform="matrix(1 0 0 1 459.95 202.6599)" class="st4 st5">MADAGASCAR</text>
-<text transform="matrix(1 0 0 1 533.0073 331.4975)" class="st6"><tspan x="0" y="0" class="st4 st5">Lémur Cola </tspan><tspan x="0" y="16.8" class="st4 st5"> Anillada</tspan></text>
-<text transform="matrix(1 0 0 1 98.6124 69.8733)" class="st4 st5">ÁFRICA</text>
-<path id="XMLID_20_" class="st7" d="M439,350.9c4.2-0.7,8.5-0.7,12.8-0.6c1.2,0,2.4,0.2,3.6,0.2c1.4,0,2.5,0.4,3.3,1.6
-	c0.8,1.4,2.1,2.4,3.3,3.4c1.5,1.2,2.4,2.9,3.2,4.6c-0.1,0.2-0.2,0.4-0.2,0.6c-0.1,0.8-0.1,1.3,0.4,1.2c0.1,0.9,0,1.8-0.5,2.6
-	c-0.2,0.4-0.2,0.9-0.2,1.3c0.1,1.8-0.4,3.4-0.8,5.1c-0.5,2.3-1.4,4.5-0.9,7c0.3,1.6,0.7,3.1,2.4,3.8c1.3,0.5,1.5,1.8,2,2.8
-	c-2,0.8-4,1.7-5.7,3c-2.2-0.3-4.2,0.2-5.7,2.1c-0.3-0.8-0.3-0.5-0.4,0.6c-1.7,2.2-2.6,4.8-3.2,7.6c-0.1,0.7-0.4,1.2-0.7,1.8
-	c-0.2,0-0.5,0-0.7,0.3c-0.1,0.2,0.1,0.2,0.3,0.2c-0.8,2.5-2.1,4.9-3.2,7.3c-1.1,2.5-0.8,3.7,1.5,5.2c1.3,0.9,2.7,1.7,3.7,3.1
-	c1.2,1.6,3.7,1.8,5.1,0.3c1.6-1.7,3.7-1.7,5.5-2.4c1.1-0.5,2.3-0.3,3.4-0.5c1-0.2,2-0.6,2.8-1.5c0.5-0.6,1.1-1.2,1.8-1.7
-	c1.9-1.5,5.1-0.6,5.9,1.8c0.3,0.7,0.5,1.5,0.7,2.2c0.2,0.5,0.3,1.1,0.8,1.3c1.1,0.6,1.7,1.6,2,2.6c0.5,2.4,2.1,4.1,3.4,6
-	c0.6,0.9,1.1,1.9,1.3,3c0,0.1,0,0.2,0,0.3c-0.1,0.1-0.3,0.1-0.4,0.2c-0.3,0.2-0.7,0.1-0.9,0.5l0,0c-0.9,0.3-1.5,1-2.4,1.3l0,0
-	c-0.9-0.3-1.9-0.9-2.8-0.8c-1,0.1-2.1,0.3-3.1,0.7c-0.1,0.1-0.2,0.2-0.3,0.3l0,0c-0.4,0-0.8,0-1.1,0.5l0,0c-0.8,0.1-1.6,0.1-2.1,0.9
-	c-0.3,0.1-0.6,0.2-0.9,0.3c-0.2,0-0.4,0-0.5,0.2l0,0c-0.2,0-0.4,0-0.4,0.2l0,0c-0.2,0-0.5,0-0.6,0.2l0,0c-0.1,0.1-0.2,0.1-0.2,0.2
-	l0,0c-0.2,0-0.4,0-0.4,0.2l0,0c-0.2,0-0.4,0-0.4,0.3c-1.4,0.8-2.4,2.2-3.9,2.9c-0.5,0.1-1.1,0.2-1.5,0.6l0,0c-2.1-0.1-4.1,0-6.2,0.5
-	l0,0c-0.1-0.3,0.1-0.8-0.4-0.9c-0.7-0.7-1.8-0.7-2.6-1.3c-0.1-0.1-0.1-0.2-0.2-0.3l0,0c0-0.4,0.1-0.8-0.4-0.9l0,0
-	c-0.1-0.1-0.1-0.2-0.2-0.2l0,0c-0.1-0.1-0.2-0.2-0.2-0.2l0,0c-0.2-0.4-0.5-0.5-0.9-0.5l0,0c-0.1-0.2-0.3-0.2-0.4-0.2l0,0
-	c-0.1-0.2-0.3-0.2-0.4-0.2l0,0c-0.1-0.2-0.3-0.2-0.4-0.2l0,0c-0.4-0.4-0.9-0.4-1.4-0.5c-1.9-0.4-4.1,0.1-5.6-1.7
-	c-0.8-1.2-1.7-2.1-3.3-2.3c-0.9-0.1-1.4-1-1.6-2c-0.2-1-0.3-1.9-1.1-2.6c-0.7-0.7-0.7-1.6-0.4-2.6c0-0.6,0-1.2-0.7-1.5l0,0
-	c0-0.3-0.2-0.5-0.4-0.5l0,0c0-0.2,0-0.4-0.2-0.5l0,0c-0.1-0.1-0.1-0.2-0.2-0.2l0,0c0-0.3-0.1-0.5-0.4-0.5l0,0
-	c-0.1-0.2-0.3-0.2-0.4-0.2l0,0c-0.1-0.2-0.2-0.2-0.4-0.2l0,0c-0.1-0.1-0.2-0.2-0.2-0.2l0,0c-0.1-0.1-0.1-0.2-0.2-0.2l0,0
-	c-0.1-0.1-0.1-0.2-0.2-0.2l0,0c-0.1-0.1-0.1-0.2-0.2-0.2l0,0c0-0.2,0-0.4-0.2-0.5l0,0c-0.4-2-0.2-3.9-0.2-5.9c0-0.4,0.2-0.9-0.4-1
-	c0-1.3,0.1-2.6-0.3-3.9c0.4-0.6,0.2-1.2,0.2-1.8c0-0.5,0-1,0.5-1.1c1.1-0.2,1.4-0.9,1.2-2c0-0.5,0.2-1.1-0.4-1.3
-	c0-0.5-0.3-0.8-0.8-0.9l0,0c-0.1-0.1-0.1-0.2-0.2-0.2l0,0c-0.5-0.4-0.7-0.9-0.6-1.6c0.1-1.1-0.1-2.2-0.4-3.3c-0.5-0.9-1.7-1.1-2.2-2
-	c0-0.3-0.1-0.5-0.4-0.6l0,0c0-0.3,0-0.7-0.4-0.7l0,0c-0.1-0.1-0.1-0.2-0.2-0.2l0,0c0-0.2-0.1-0.4-0.2-0.5l0,0
-	c-0.1-0.1-0.1-0.2-0.2-0.2l0,0c0-0.2,0-0.4-0.2-0.5l0,0c-0.1-1.5-0.3-3-1.2-4.2c0.4-1.4-0.5-2.6-0.6-4c0-0.5-0.2-1.1-0.3-1.7
-	c0.3-0.1,0.3-1.1,0.8-0.3c0.2,0.3,0.4,0,0.5-0.1c0.3-0.5,0.1-1.3-0.2-1.4c-1.2-0.5-0.6-1.6-0.9-2.4l0,0c0.4-0.7,0.9-1.4,1.4-2
-	c0.1-0.1,0.3-0.4,0.2-0.5c-0.4-0.9,0.1-1.8,0-2.7l0,0c0.2,0,0.3,0,0.4-0.2l0,0c0.1-0.1,0.1-0.2,0.2-0.2l0,0c0.2-0.1,0.2-0.3,0.2-0.5
-	l0,0c0.1-0.1,0.1-0.2,0.2-0.2l0,0c0.4-0.5,0.8,0.2,1.2,0.1c-0.2-0.3-0.3-0.6-0.4-0.9l0,0c0.4-0.2,0.4-0.6,0.3-1
-	c0.1-0.1,0.1-0.1,0.2-0.2l0,0c1.2,0.1,2.3-0.4,3.4-0.5c0.1,0.2,0.3,0.3,0.4,0.3c0.2-0.1,0-0.3-0.1-0.4c0.6-0.8,1.2-1.7,0.9-2.8
-	c-0.1-0.6-0.5-1.1-0.7-1.6c0.9-0.4,1-1.3,1.4-2c0.5-0.8,0.9-1.5,0.6-2.5c0-0.5,0.1-1,0.1-1.6c0.5-0.1,0.3-0.6,0.3-0.9l0,0
-	c0.4-0.4,0.7-0.8,0.6-1.4l0,0C438.6,350.9,438.8,350.9,439,350.9z"/>
-                      </svg>
-                        <div id="carruselConMapa" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carruselConMapa" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active" data-bs-interval="1000">
-                                    <object class="d-block w-100" data="files/lemur-1.svg" type="image/svg+xml"></object>
-                                    <div class="carousel-caption">
-                                        <h5>1950</h5>
-                                    </div>
-                                </div>
-                                <div class="carousel-item" data-bs-interval="1000">
-                                    <object class="d-block w-100" data="files/lemur-2.svg" type="image/svg+xml"></object>
-                                    <div class="carousel-caption">
-                                        <h5>1970</h5>
-                                    </div>
-                                </div>
-                                <div class="carousel-item" data-bs-interval="1000">
-                                    <object class="d-block w-100" data="files/lemur-3.svg" type="image/svg+xml"></object>
-                                    <div class="carousel-caption">
-                                        <h5>2000</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="container">
-                <div class="row">
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
-                        <p>Toda la familia de lémures son endémicos de Madagascar y habitan principalmente las zonas más bajas de la isla. El Lemur Catta, en particular, se encuentra en la zona sur.</p>
-                    </div>
-                </div>
-            </section>
-            <section class="container">
-            <h3 class="text-center pt-5 pb-2">Marcar territorio</h3>
-            <div class="container">
-              <div class="row">
-                <div class="col">
-                  <img src="files/lemurmanos.gif" width="200" height="200">
-                </div>
-                <div class="col">
-                <img src="files/lemurcolas.gif" width="200" height="200">
-                </div>
-              </div>
-              <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
-              <p>
-                  Los machos dominantes esparcen feromonas por su cola. La agitan para esparcir el olor a su alrededor y esto llama la atención de las hembras.
-              </p>
-              </section>
-            <section class="container">
-                <div class="row">
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-
-                        <h3 class="text-center pt-5 pb-2">Etcétera</h3>
-                    </div>
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <div class="row align-items-center py-4">
-                            <div class="col-sm-6 text-center text-sm-start order-sm-2">
-                                <h4>Visión del tigre</h4>
-                                <p>Su visión es muy aguda aún en la oscuridad. De noche su pupila se agranda para dejar pasar más luz y de día en cambio se reduce.</p>
-                                <div class="small fw-bold">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="radioNocturno" value="nocturno" onchange="getValue(this)" checked />
-                                        <label class="form-check-label" for="radioNocturno">DE NOCHE</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="radioDiurno" value="diurno" onchange="getValue(this)" />
-                                        <label class="form-check-label" for="radioDiurno">DE DÍA</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 order-sm-1">
-                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" class="w-100">
-                                    <style type="text/css">
-                                        .uno {
-                                            fill: none;
-                                            stroke: #585453;
-                                            stroke-linecap: round;
-                                            stroke-miterlimit: 10;
-                                        }
-                                        .dos {
-                                            fill: #dd7324;
-                                        }
-                                    </style>
-                                    <path id="arriba" class="uno" d="M5,50C5,50,57.7-5.9,110,5c52.3,10.9,85,80,85,80" />
-                                    <path id="abajo" class="uno" d="M25,35c0,0,14.1,55.5,75,60c59.5,4.4,70-45,70-45" />
-                                    <circle id="iris" class="uno" cx="105" cy="50" r="40" />
-                                    <!--la Id es clave, porque eso es lo que el JavaScript busca en el documento-->
-                                    <circle id="poca_luz" class="dos" cx="105" cy="50" r="35" class="d-none" />
-                                    <ellipse id="mucha_luz" class="dos" cx="105" cy="50" rx="10" ry="35" class="d-none" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h4 class="text-center pt-5 pb-2">Parentezco</h4>
-                        <object data="files/grafico-tamanos3.svg" type="image/svg+xml" class="my-3"></object>
-                        <p>Aunque la clasificación de los Lemuridae no está libre de controversia (ya que cada vez se descubren nuevas especies - extintas o no), se pueden contar <em>cinco géneros</em> y más de cien especies o subespecies reconocidas.</p>
-                    </div>
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h4 class="text-center pt-5 pb-2">Yuxtaposición de imágenes</h4>
-                        <div id="image-compare" class="my-3">
-                            <img src="files/beirut-antes.jpg" alt="Antes" />
-                            <img src="files/beirut-despues.jpg" alt="Después" />
-                        </div>
-                        <p>Hay distintas formas de resolver, con JavaScript, una <a href="https://bashooka.com/coding/image-comparison-slider-javascript-libraries/" target="_blank">yuxtaposición imágenes</a>. En este caso ocupamos <a href="https://image-compare-viewer.netlify.app/" target="_blank">Imagen Comparte Viewer</a>, que ofrece su código de programación como una biblioteca de JavaScript complementada con un código de descripción de estilo (CSS). </p>
-                    </div>
-                        <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                            <h4 class="text-center pt-5 pb-2">Animación</h4>
-                            <p>Recuerden que podemos animar SVG con CSS, como en el siguiente caso; donde tenemos un par de <a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank">animaciones</a>, cada una con su <a href="https://www.w3schools.com/css/css3_2dtransforms.asp" target="_blank">transformación en 2D</a>:
-                            </p>
-                            <object class="mx-5" data="files/el-grito.svg" type="image/svg+xml"></object>
-                            <p class="text-center mx-5 mb-5 small text-muted">Este es el saco gural o faringeo del Siamang, que puede inflarse hasta alcanzar el tamaño de su cabeza. Está presente en macho y hembra. Se trata de una característica morfológica única que los distingue de otros gibones.</p>
-                            <p class="mb-5">Como ya se dijo, hay formas <a href="https://css-tricks.com/guide-svg-animations-smil/" target="_blank" rel="noopener noreferrer">más complejas de animar SVG</a>, donde no se utiliza CSS, sino el mismo primer lenguaje. De tal forma se resuelven las animaciones de <strong>Movements and maneuvers </strong> en <a href="https://multimedia.scmp.com/culture/article/ufo/" target="_blank" rel="noopener noreferrer">Are we alone?</a>, un trabajo de Adolfo Arranz y Pablo Robles, publicado en el South China Morning Post.</p>
-                            <p>También hay formas de animar con CSS y HTML, sin SVG, pero eso lo podremos ver la próxima sesión, sobre <a href="https://github.com/profesorfaco/infografia/tree/main/clase-4" target="_blank">JavaScript: Datos y bibliotecas</a>:</p>
-                            <div class="row mb-5" id="final">
-                                <div class="col-12" style="position:relative; height:60px;">
-                                    <img src="files/lemurmanos.gif" width="200" height="200">
-                                </div>
-                                <div class="col-12" style="position:relative; height:60px;">
-                                    <img src="files/lemurcolas.gif" width="200" height="200">
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <!--ESTE ES EL PIE DE PÁGINA-->
-<aside>
-            <div class="container small text-center">
-                <div class="row py-5">
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h5 class="fs-6 mb-3">Fuentes</h5>
-
-                        <p>
-                            <a href="http://visibleearth.nasa.gov/view.php?id=40173">NASA Visible Earth</a> &bull; <a href="http://orbitaldebris.jsc.nasa.gov/">NASA Orbital Debris Program Office</a> &bull;
-                            <a href="http://www.ucsusa.org/">UCS Union of Concerned Scientics</a> &bull; <a href="http://www.jpl.nasa.gov/">NASA Jet Propulsion Laboratory</a> &bull; <a href="#">SSN (U.S. Space Surveillance Network)</a>
-                        </p>
-
-                        <p><em>Agradecimientos a</em> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fringilla lorem nec tristique varius. Fusce egestas ullamcorper lorem et consequat.</p>
-
-                        <h5 class="fs-6 mt-5 mb-3">Versión impresa</h5>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalImpreso">
-                            <img src="files/tinylemur.jpg" class="w-50 shadow-sm mb-5" alt="infografía impresa pequeña" />
-                        </a>
-                        <div class="modal fade" id="modalImpreso" tabindex="-1" aria-hidden="true">
-                            <div class="modal-dialog modal-fullscreen">
-                                <img src="files/tinylemur.jpg" class="w-100" alt="infografía impresa grande" />
-                            </div>
-                        </div>
-
-                        <p class="small">
-                            <em><a href="https://www.diplomadodeinfografia.cl/" class="link-dark" target="_blank">Diplomado de Infografía</a> &bull; 2021</em><br />
-                            Escuela de Diseño de la Pontificia Universidad Católica de Chile<br />
-                        </p>
-                    </div>
-                </div>
+               <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
+                  <h3 class="text-center pt-5 pb-2">Marcar territorio</h3>
+                  <div class="row g-5">
+                     <div class="col-sm-6">
+                        <img src="files/lemurmanos.gif" class="w-100" />
+                     </div>
+                     <div class="col-sm-6">
+                        <img src="files/lemurcolas.gif" class="w-100" />
+                     </div>
+                  </div>
+                  <p>Los machos dominantes esparcen feromonas por su cola. La agitan para esparcir el olor a su alrededor y esto llama la atención de las hembras.</p>
+               </div>
             </div>
-            <div class="bg-light">
-                <div class="container py-5">
-                    <div class="row">
-                        <h4 class="col-12 mb-4 text-center">También te puede interesar</h4>
-                    </div>
-                    <div class="row g-4" id="colegas"></div>
-                    <script>
-                        const colegas = document.getElementById("colegas");
-                        const datos = [
-                            { especie: "Gibón de manos blancas", imagen: "https://picsum.photos/id/237/300/300", descripcion: "Lorem ipsum dolor sit amet.", url: "https://gibon-de-manos-blancas.github.io/avance/" },
-                            { especie: "Grulla de cuello blanco", imagen: "https://picsum.photos/id/237/300/300", descripcion: "Lorem ipsum dolor sit amet.", url: "https://grulla-de-cuello-blanco.github.io/avance" },
-                            { especie: "Hipopotamo pigmeo", imagen: "https://picsum.photos/id/237/300/300", descripcion: "Un pequeño caballo de río.", url: "https://hipopotamo-pigmeo.github.io/avance" },
-                            { especie: "Panda rojo", imagen: "https://picsum.photos/id/237/300/300", descripcion: "El animal más lindo del mundo.", url: "https://infografia-panda-rojo.github.io/avance" },
-                            { especie: "Lemur de cola anillada", imagen: "https://picsum.photos/id/237/300/300", descripcion: "El zorrillo de Madagascar.", url: "https://lemur-cola-anillada.github.io/avance" },
-                            { especie: "Orangutan borneo", imagen: "https://picsum.photos/id/237/300/300", descripcion: "El hombre del bosque.", url: "https://orangutan-borneo-uc.github.io/avance" },
-                            { especie: "Oso malayo", imagen: "https://picsum.photos/id/237/300/300", descripcion: "El oso más pequeño", url: "https://oso-malayo.github.io/avance" },
-                            { especie: "Siamang", imagen: "https://picsum.photos/id/237/300/300", descripcion: "El acróbata de la selva.", url: "https://siamang-infografia.github.io/avance" },
-                            { especie: "Tapir amazonico", imagen: "https://picsum.photos/id/237/300/300", descripcion: "El jardinero de la selva.", url: "https://tapir-amazonico.github.io/avance" },
-                            { especie: "Tigre de bengala", imagen: "https://picsum.photos/id/237/300/300", descripcion: "El felino más grande del mundo.", url: "https://tapir-amazonico.github.io/avance" }
-                        ];
-
-                        datos.forEach((d) => {
-                            if(d.especie != "Lemur de cola anillada"){
-                                colegas.innerHTML +=
-                                    '<div class="col-12 col-md-6 col-lg-4"><div class="row shadow-sm g-0 small align-items-center bg-white"><div class="col-3"><img src="' +
-                                    d.imagen + '" alt="' +
-                                    d.especie +
-                                    '" class="w-100"></div><div class="col-9 p-2"><em>' +
-                                    d.especie +
-                                    '</em>, <a href="' +
-                                    d.url +
-                                    '">' +
-                                    d.descripcion +
-                                    "</a></div></div></div>";
-                            }
-                        });
-                    </script>
-                </div>
+         </section>
+         <section class="container">
+            <div class="row">
+               <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                  <h4 class="text-center pt-5 pb-2">Parentezco</h4>
+                  <object data="files/grafico-tamanos3.svg" type="image/svg+xml" class="my-3"></object>
+                  <p>
+                     Aunque la clasificación de los Lemuridae no está libre de controversia (ya que cada vez se descubren nuevas especies - extintas o no), se pueden contar <em>cinco géneros</em> y más de cien especies o subespecies
+                     reconocidas.
+                  </p>
+               </div>
+               <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                  <h4 class="text-center pt-5 pb-2">Yuxtaposición de imágenes</h4>
+                  <div id="image-compare" class="my-3">
+                     <img src="files/beirut-antes.jpg" alt="Antes" />
+                     <img src="files/beirut-despues.jpg" alt="Después" />
+                  </div>
+                  <p>
+                     Hay distintas formas de resolver, con JavaScript, una <a href="https://bashooka.com/coding/image-comparison-slider-javascript-libraries/" target="_blank">yuxtaposición imágenes</a>. En este caso ocupamos
+                     <a href="https://image-compare-viewer.netlify.app/" target="_blank">Imagen Comparte Viewer</a>, que ofrece su código de programación como una biblioteca de JavaScript complementada con un código de descripción de
+                     estilo (CSS).
+                  </p>
+               </div>
+               <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                  <h4 class="text-center pt-5 pb-2">Animación</h4>
+                  <p>
+                     Recuerden que podemos animar SVG con CSS, como en el siguiente caso; donde tenemos un par de <a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank">animaciones</a>, cada una con su
+                     <a href="https://www.w3schools.com/css/css3_2dtransforms.asp" target="_blank">transformación en 2D</a>:
+                  </p>
+                  <object class="mx-5" data="files/el-grito.svg" type="image/svg+xml"></object>
+                  <p class="text-center mx-5 mb-5 small text-muted">
+                     Este es el saco gural o faringeo del Siamang, que puede inflarse hasta alcanzar el tamaño de su cabeza. Está presente en macho y hembra. Se trata de una característica morfológica única que los distingue de otros
+                     gibones.
+                  </p>
+                  <p class="mb-5">
+                     Como ya se dijo, hay formas <a href="https://css-tricks.com/guide-svg-animations-smil/" target="_blank" rel="noopener noreferrer">más complejas de animar SVG</a>, donde no se utiliza CSS, sino el mismo primer
+                     lenguaje. De tal forma se resuelven las animaciones de <strong>Movements and maneuvers </strong> en
+                     <a href="https://multimedia.scmp.com/culture/article/ufo/" target="_blank" rel="noopener noreferrer">Are we alone?</a>, un trabajo de Adolfo Arranz y Pablo Robles, publicado en el South China Morning Post.
+                  </p>
+               </div>
             </div>
-        </aside>
-
-        <!--ESTE ES EL PIE DE PÁGINA-->
-        <footer class="bg-dark text-white-50">
-            <div class="container">
-                <div class="row">
-                    <div class="col py-3">
-                        <p class="text-center small">
-                            Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" class="link-light">Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional</a>.
-                        </p>
-                    </div>
-                </div>
+         </section>
+      </main>
+      <aside>
+         <div class="container small text-center">
+            <div class="row py-5">
+               <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
+                  <h5 class="fs-6 mb-3">Fuentes</h5>
+                  <p>
+                     <a href="http://visibleearth.nasa.gov/view.php?id=40173">NASA Visible Earth</a> &bull; <a href="http://orbitaldebris.jsc.nasa.gov/">NASA Orbital Debris Program Office</a> &bull;
+                     <a href="http://www.ucsusa.org/">UCS Union of Concerned Scientics</a> &bull; <a href="http://www.jpl.nasa.gov/">NASA Jet Propulsion Laboratory</a> &bull; <a href="#">SSN (U.S. Space Surveillance Network)</a>
+                  </p>
+                  <p><em>Agradecimientos a</em> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fringilla lorem nec tristique varius. Fusce egestas ullamcorper lorem et consequat.</p>
+                  <h5 class="fs-6 mt-5 mb-3">Versión impresa</h5>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#modalImpreso">
+                  <img src="files/tinylemur.jpg" class="w-50 shadow-sm mb-5" alt="infografía impresa pequeña" />
+                  </a>
+                  <div class="modal fade" id="modalImpreso" tabindex="-1" aria-hidden="true">
+                     <div class="modal-dialog modal-fullscreen">
+                        <img src="files/tinylemur.jpg" class="w-100" alt="infografía impresa grande" />
+                     </div>
+                  </div>
+                  <p class="small">
+                     <em><a href="https://www.diplomadodeinfografia.cl/" class="link-dark" target="_blank">Diplomado de Infografía</a> &bull; 2021</em><br />
+                     Escuela de Diseño de la Pontificia Universidad Católica de Chile<br />
+                  </p>
+               </div>
             </div>
-        </footer>
-        <!--EN EL SCRIPT QUE SIGUE AJUSTA EL SVG DEL ESTADO DE CONSERVACIÓN AL ANCHO DE LA VENTANA-->
-        <script>
-            window.addEventListener("DOMContentLoaded", elAjuste);
-            window.addEventListener("resize", elAjuste);
-            var ajustable = document.getElementById("conservacion");
-            function elAjuste() {
-                if (window.innerWidth >= 1000) {
-                    ajustable.className = "";
-                    ajustable.classList.add("w-50");
-                } else if (window.innerWidth < 1000 && window.innerWidth > 700) {
-                    ajustable.className = "";
-                    ajustable.classList.add("w-75");
-                } else {
-                    ajustable.className = "";
-                    ajustable.classList.add("w-100");
-                }
-            }
-        </script>
-        <!--CON EL SIGUIENTE SCRIPT HAGO CANTAR AL CHUCAO-->
-        <script>
-            var canto = document.getElementById("elAudio");
-            var boton = document.getElementById("elSwitch");
-            boton.addEventListener('change', function() {
-                if (this.checked) {
-                    canto.play();
-                } else {
-                    canto.pause();
-                }
-            });
-        </script>
-        <!--CON EL SIGUIENTE SCRIPT CAMBIO LOS OJOS DE NOCHE A DÍA-->
-        <script>
-            function getValue(radio) {
-                if (radio.value == "nocturno") {
-                    document.getElementById("poca_luz").classList.remove("d-none");
-                    document.getElementById("mucha_luz").classList.add("d-none");
-                } else {
-                    document.getElementById("poca_luz").classList.add("d-none");
-                    document.getElementById("mucha_luz").classList.remove("d-none");
-                }
-            }
-        </script>
-        <!--BOOTSTRAP, ADEMÁS DE UN CSS, OFRECE SU PROPIA BIBLIOTECA DE JAVASCRIPT-->	    
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <!--LO QUE SIGUE ES OTRA BIBLIOTECA DE JAVASCRIPT-->
-        <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js"></script>
-		    
-		    		      <!--CON ESTE CÓDIGO DE ACTIVA EL POPOVER SOBRE SU NOMBRE-->
-        <script>
-            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-                return new bootstrap.Popover(popoverTriggerEl, { html: true });
-            });
-        </script>
-		    
-        <!--LO QUE SIGUE ES LA CONFIGURACIÓN DE LA COMPARACIÓN DE IMÁGENES-->
-        <script>
-            const element = document.querySelector("#image-compare");
-            const options = {
-                  controlColor: "#FFFFFF",
-                  controlShadow: true,
-                  addCircle: true,
-                  addCircleBlur: true,
-                  showLabels: true,
-                  labelOptions: {
-                    before: 'Antes',
-                    after: 'Despues',
-                    onHover: false
-                }
-            };
-            const viewer = new ImageCompare(element, options).mount();
-        </script>
-        <!--PARA QUE HOMERO CORRA UNA VEZ LLEGUEMOS AL FINAL-->
-        <script>
-            var f = document.querySelector("#final").offsetTop;
-            addEventListener("scroll",function () {
-                if (f > window.scrollY) {
-                    document.querySelector("#final").querySelectorAll("img")[0].setAttribute("id", "veloz");
-                    document.querySelector("#final").querySelectorAll("img")[1].setAttribute("id", "lento");
-                }
-            },false);
-        </script>
-    </body>
+         </div>
+         <div class="bg-light">
+            <div class="container py-5">
+               <div class="row">
+                  <h4 class="col-12 mb-4 text-center">También te puede interesar</h4>
+               </div>
+               <div class="row g-4" id="colegas"></div>
+               <script>
+                  const colegas = document.getElementById("colegas");
+                  const datos = [
+                      {
+                          especie: "Gibón de manos blancas",
+                          imagen: "https://raw.githubusercontent.com/Gibon-de-manos-blancas/avance/main/archivos/grupal.jpg",
+                          descripcion: "el danzarin del bosque.",
+                          url: "https://gibon-de-manos-blancas.github.io/avance/",
+                      },
+                      { especie: "Grulla de cuello blanco", imagen: "https://picsum.photos/id/237/300/300", descripcion: "un viajera romántica.", url: "https://grulla-de-cuello-blanco.github.io/avance" },
+                      {
+                          especie: "Hipopótamo pigmeo",
+                          imagen: "https://raw.githubusercontent.com/hipopotamo-pigmeo/avance/main/files/grupal.jpg",
+                          descripcion: "un pequeño caballo de río.",
+                          url: "https://hipopotamo-pigmeo.github.io/avance",
+                      },
+                      { especie: "Panda rojo", imagen: "https://picsum.photos/id/237/300/300", descripcion: "el animal más lindo del mundo.", url: "https://infografia-panda-rojo.github.io/avance" },
+                      {
+                          especie: "Lemur de cola anillada",
+                          imagen: "https://raw.githubusercontent.com/lemur-cola-anillada/avance/main/files/grupal.png",
+                          descripcion: "el zorrillo de Madagascar.",
+                          url: "https://lemur-cola-anillada.github.io/avance",
+                      },
+                      {
+                          especie: "Orangutan borneo",
+                          imagen: "https://raw.githubusercontent.com/orangutan-borneo-uc/avance/main/imgs/grupal.jpg",
+                          descripcion: "el hombre del bosque.",
+                          url: "https://orangutan-borneo-uc.github.io/avance",
+                      },
+                      { especie: "Oso malayo", imagen: "https://raw.githubusercontent.com/oso-malayo/Avance/main/cositas/grupal.png", descripcion: "el oso más pequeño", url: "https://oso-malayo.github.io/avance" },
+                      { especie: "Siamang", imagen: "https://avatars.githubusercontent.com/u/95137910?s=200&v=4", descripcion: "El acróbata de la selva.", url: "https://siamang-infografia.github.io/avance" },
+                      { especie: "Tapir amazónico", imagen: "https://raw.githubusercontent.com/tapir-amazonico/avance/main/files/grupal.jpg", descripcion: "el jardinero de la selva.", url: "https://tapir-amazonico.github.io/avance" },
+                      {
+                          especie: "Tigre de bengala",
+                          imagen: "https://raw.githubusercontent.com/Tigre-de-Bengala/avance/main/grupal.jpg",
+                          descripcion: "el felino más grande del mundo.",
+                          url: "https://tapir-amazonico.github.io/avance",
+                      },
+                  ];
+                  
+                  datos.forEach((d) => {
+                      if (d.especie != "Lemur de cola anillada") {
+                          colegas.innerHTML +=
+                              '<div class="col-12 col-md-6 col-lg-4"><div class="row shadow-sm g-0 small align-items-center bg-white"><div class="col-3"><img src="' +
+                              d.imagen +
+                              '" alt="' +
+                              d.especie +
+                              '" class="w-100"></div><div class="col-9 p-2"><em>' +
+                              d.especie +
+                              '</em>, <a href="' +
+                              d.url +
+                              '">' +
+                              d.descripcion +
+                              "</a></div></div></div>";
+                      }
+                  });
+               </script>
+            </div>
+         </div>
+      </aside>
+      <!--ESTE ES EL PIE DE PÁGINA-->
+      <footer class="bg-dark text-white-50">
+         <div class="container">
+            <div class="row">
+               <div class="col py-3">
+                  <p class="text-center small">
+                     Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" class="link-light">Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional</a>.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!--BOOTSTRAP, ADEMÁS DE UN CSS, OFRECE SU PROPIA BIBLIOTECA DE JAVASCRIPT-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <!--LO QUE SIGUE ES OTRA BIBLIOTECA DE JAVASCRIPT-->
+      <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js"></script>
+      <!--CON ESTE CÓDIGO DE ACTIVA EL POPOVER SOBRE SU NOMBRE-->
+      <script>
+         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+             return new bootstrap.Popover(popoverTriggerEl, { html: true });
+         });
+      </script>
+      <!--LO QUE SIGUE ES LA CONFIGURACIÓN DE LA COMPARACIÓN DE IMÁGENES-->
+      <script>
+         const element = document.querySelector("#image-compare");
+         const options = {
+             controlColor: "#FFFFFF",
+             controlShadow: true,
+             addCircle: true,
+             addCircleBlur: true,
+             showLabels: true,
+             labelOptions: {
+                 before: "Antes",
+                 after: "Despues",
+                 onHover: false,
+             },
+         };
+         const viewer = new ImageCompare(element, options).mount();
+      </script>
+   </body>
 </html>
