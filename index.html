@@ -76,14 +76,6 @@
             aside {
                 background: linear-gradient(#fff, #e7e8e9);
             }
-            
-            .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-
         </style>
         <!--ESTO SERVIRÁ PARA COMPARAR UN ANTES Y UN DESPUÉS-->
         <link href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css" rel="stylesheet" />
@@ -195,103 +187,83 @@
         </header>
         <!--ESTE ES EL CONTENIDO PRINCIPAL-->
         <main>
+            <!--AHORA EL TEXTO SÍ VA "SOBRE" EL SVG. PARA RESOLVERLO, SÓLO USO REGLAS DE BOOTSTRAP-->
             <section>
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
                             <h4 class="text-center pt-5 pb-2">Cola de 13 anillos</h4>
-                            <object data="files/lemur-chico.svg" type="image/svg+xml" class="d-md-none"></object>
-                            <object data="files/lemur-grande.svg" type="image/svg+xml" class="d-none d-md-block"></object>
-
-                            <p class="text-center">
-                                Muy larga y que siempre termina <br />
-                                en negro. Cuando se desplazan por <br />
-                                el suelo, todos los miembros caminan <br />
-                                con la cola elevada como si fueran <br />
-                                banderas y se organizan de acuerdo <br />
-                                a sus jerarquías.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="container">
-                <div class="row">
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
-                        <div class="row g-5">
-                            <div class="col-sm-4">
-                                <img src="files/1glandula.png" class="w-100" />
-                                <h4 class="text-center pt-5 pb-2">Glándula</h4>
-                                <p>Crecen en sus muñecas y secretan fermomonas las cuales esparcen por su cola.</p>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <img src="files/1garra.png" class="w-100" />
-                                <h4 class="text-center pt-5 pb-2">Garra de aseo</h4>
-                                <p>Usada para el acicalamiento social; por los miembros de menor jerarquía hacia aquellos más dominantes.</p>
-                            </div>
-
-                            <div class="col-sm-4">
-                                <img src="files/1nariz.png" class="w-100" />
-                                <h4 class="text-center pt-5 pb-2">Nariz</h4>
-                                <p>
-                                    La principal característica de los estrepsirrinos es su nariz húmeda —parecida a la que tienen perros y gatos— y a la forma de orificios nasales en forma de coma. El olfato es un sentido muy importante
-                                    para los lémures ya que les permite comunicarse.
+                            <div class="position-relative">
+                                <object data="files/lemur-chico.svg" type="image/svg+xml" class="d-md-none"></object>
+                                <object data="files/lemur-grande.svg" type="image/svg+xml" class="d-none d-md-block"></object>
+                                <p class="text-start position-absolute top-0 w-50 pt-5 ps-md-5 small text-muted">
+                                    Tienen una cola muy larga, que siempre termina en negro. Cuando se desplazan por el suelo en posición cuadrúpeda, llevan la cola elevada como si fueran banderas.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <!--RECOMIENDO EQUILIBRAR LA EXTENSIÓN DE CADA DESCRIPCIÓN, RESCATANDO LO QUE SE HA DICHO SE PODRÁ DECIR-->
+            <section class="container">
+                <div class="row">
+                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
+                        <div class="row g-5">
+                            <div class="col-sm-4 text-center">
+                                <img src="files/1nariz.png" class="w-75 mx-auto" />
+                                <h5 class="my-3 fs-6">Nariz</h5>
+                                <p class="small">Su nariz, como la de perros y gatos, es húmeda y sus orificios nasales tinen en forma de coma.</p>
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <img src="files/1glandula.png" class="w-75 mx-auto" />
+                                <h5 class="my-3 fs-6">Glándulas odoríferas</h5>
+                                <p class="small">Crecen en su antebrazo. Secretan fermomonas, las cuales esparcen por su cola para <a href="#marcar_territorio">marcar territorio</a>.</p>
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <img src="files/1garra.png" class="w-75 mx-auto" />
+                                <h5 class="my-3 fs-6">Garra de aseo</h5>
+                                <p class="small">Crece en su meñique. La utilizan para acicalar los más dominantes, en su activa <a href="#vida_social">vida social</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <section class="container">
                 <div class="row">
                     <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
-                        <h3 class="text-center pt-5 pb-2">Vida Social</h3>
-                        <div class="row g-5">
-                            <div class="col-sm-4">
+                        <h3 class="text-center pt-5 pb-2" id="vida_social">Vida Social</h3>
+                        <div class="row align-items-center">
+                            <div class="col-sm-6">
                                 <img src="files/2madre.png" class="w-100" />
                             </div>
-
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <h4 class="text-left pt-5 pb-2">Clan Matriarcal</h4>
                                 <p>
-                                    Las hembras dominan el clan a través de una jerarquía meritocrática. Cuando tienen crías las trasladan colgadas de su vientre. Cuando estos alcanzan dos meses de edad, otras hembras ayuda y los llevan en
+                                    Las hembras dominan el clan a través de una jerarquía meritocrática. Cuando tienen crías las trasladan colgadas de su vientre. Cuando estos alcanzan dos meses de edad, otras hembras ayudan, cargándolos en
                                     sus espaldas.
                                 </p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="container">
-                <div class="row">
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
-                        <div class="row g-5">
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <h4 class="text-left pt-5 pb-2">Baños de sol</h4>
-                                <p>Se recuestan o se sientan en el suelo con sus extremidades extendidas y toman sol boca arriba.</p>
+                                <p>En grupos, se recuestan o se sientan en el suelo con sus extremidades extendidas y toman sol boca arriba. En tal posición pueden pasar horas.</p>
                             </div>
 
-                            <div class="col-sm-8">
+                            <div class="col-sm-6">
                                 <img src="files/bano_de_sol.png" class="w-100" />
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
             <section class="container">
                 <div class="row">
                     <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
-                        <div class="row g-5">
+                        <div class="row g-5 align-items-center">
                             <div class="col-sm-4">
                                 <h4 class="text-left pt-5 pb-2">Día a día</h4>
-                                <p>
-                                    Considerados los lémures más diurnos, evitan la actividad nocturna cuando las temperaturas son bajas. Pese a que son primates arbóreos, pasan un tercio de su tiempo viajando por el suelo en posición
-                                    cuadrúpeda.
-                                </p>
+                                <p>Evitan la actividad nocturna, cuando las temperaturas son bajas. Pese a que son primates arbóreos, pasan un tercio de su tiempo viajando por el suelo en posición cuadrúpeda.</p>
                             </div>
 
                             <div class="col-sm-4">
@@ -311,15 +283,7 @@
                     <div class="row">
                         <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
                             <h3 class="text-center pt-5 pb-2">Presencia</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <object data="files/ubicacion.svg" alt="centered image" type="image/svg+xml" class="w-50 center" id="conservacion"></object>
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
+                            <object data="files/ubicacion.svg" alt="Mapa con Madagascar destacado" type="image/svg+xml" class="w-100 my-3"></object>
                             <p>Toda la familia de lémures son endémicos de Madagascar y habitan principalmente las zonas más bajas de la isla. El Lemur Catta, en particular, se encuentra en la zona sur.</p>
                         </div>
                     </div>
@@ -329,7 +293,7 @@
             <section class="container">
                 <div class="row">
                     <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto mt-3 mb-5">
-                        <h3 class="text-center pt-5 pb-2">Marcar territorio</h3>
+                        <h3 class="text-center my-3" id="marcar_territorio">Marcar territorio</h3>
                         <div class="row g-5">
                             <div class="col-sm-6">
                                 <img src="files/lemurmanos.gif" class="w-100" />
@@ -345,7 +309,7 @@
             <section class="container">
                 <div class="row">
                     <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h4 class="text-center pt-5 pb-2">Parentezco</h4>
+                        <h3 class="text-center pt-5 pb-2">Parentezco</h3>
                         <object data="files/grafico-tamanos3.svg" type="image/svg+xml" class="my-3"></object>
                         <p>
                             Aunque la clasificación de los Lemuridae no está libre de controversia (ya que cada vez se descubren nuevas especies - extintas o no), se pueden contar <em>cinco géneros</em> y más de cien especies o subespecies
@@ -353,32 +317,14 @@
                         </p>
                     </div>
                     <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h4 class="text-center pt-5 pb-2">Yuxtaposición de imágenes</h4>
+                        <h4 class="text-center pt-5 pb-2">Estructura ósea</h4>
                         <div id="image-compare" class="my-3">
                             <img src="files/ldigital.png" alt="Exterior" />
                             <img src="files/lesqueleto.png" alt="Esqueleto" />
                         </div>
                         <p>
-                            Hay distintas formas de resolver, con JavaScript, una <a href="https://bashooka.com/coding/image-comparison-slider-javascript-libraries/" target="_blank">yuxtaposición imágenes</a>. En este caso ocupamos
-                            <a href="https://image-compare-viewer.netlify.app/" target="_blank">Imagen Comparte Viewer</a>, que ofrece su código de programación como una biblioteca de JavaScript complementada con un código de descripción de
-                            estilo (CSS).
-                        </p>
-                    </div>
-                    <div class="col-sm-11 col-md-10 col-lg-9 col-xl-8 col-xxl-7 mx-auto">
-                        <h4 class="text-center pt-5 pb-2">Animación</h4>
-                        <p>
-                            Recuerden que podemos animar SVG con CSS, como en el siguiente caso; donde tenemos un par de <a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank">animaciones</a>, cada una con su
-                            <a href="https://www.w3schools.com/css/css3_2dtransforms.asp" target="_blank">transformación en 2D</a>:
-                        </p>
-                        <object class="mx-5" data="files/el-grito.svg" type="image/svg+xml"></object>
-                        <p class="text-center mx-5 mb-5 small text-muted">
-                            Este es el saco gural o faringeo del Siamang, que puede inflarse hasta alcanzar el tamaño de su cabeza. Está presente en macho y hembra. Se trata de una característica morfológica única que los distingue de otros
-                            gibones.
-                        </p>
-                        <p class="mb-5">
-                            Como ya se dijo, hay formas <a href="https://css-tricks.com/guide-svg-animations-smil/" target="_blank" rel="noopener noreferrer">más complejas de animar SVG</a>, donde no se utiliza CSS, sino el mismo primer
-                            lenguaje. De tal forma se resuelven las animaciones de <strong>Movements and maneuvers </strong> en
-                            <a href="https://multimedia.scmp.com/culture/article/ufo/" target="_blank" rel="noopener noreferrer">Are we alone?</a>, un trabajo de Adolfo Arranz y Pablo Robles, publicado en el South China Morning Post.
+                            Los lémures son mamíferos del orden de los primates. Con vista de Rayos-X podemos notar algunos ragos morfológicos que coinciden con la que es común en los primates antropoides, como los cinco dedos en manos y
+                            pies, donde cuatro se oponen a un pulgar. Además, es posible notar la cola de este lemur, anillada trece veces, es tan larga que supera la extensión de su columna vertebral.
                         </p>
                     </div>
                 </div>
@@ -526,7 +472,7 @@
                 controlShadow: true,
                 addCircle: true,
                 addCircleBlur: true,
-                showLabels: false
+                showLabels: false,
             };
             const viewer = new ImageCompare(element, options).mount();
         </script>
